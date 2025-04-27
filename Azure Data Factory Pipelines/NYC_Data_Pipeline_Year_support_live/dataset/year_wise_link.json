@@ -1,0 +1,32 @@
+{
+    "name": "year_wise_link",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "Data_lake_Storage",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "year": {
+                "type": "string"
+            },
+            "month": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "folderPath": {
+                    "value": "trip_data_@{dataset().year}",
+                    "type": "Expression"
+                },
+                "fileSystem": "bronze"
+            },
+            "compressionCodec": "snappy"
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

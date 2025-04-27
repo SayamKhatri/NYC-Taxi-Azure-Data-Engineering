@@ -1,0 +1,87 @@
+{
+    "name": "NYC_Data_Pipeline_Year",
+    "properties": {
+        "activities": [
+            {
+                "name": "Looping-Years",
+                "type": "ForEach",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "items": {
+                        "value": "@pipeline().parameters.Years",
+                        "type": "Expression"
+                    },
+                    "isSequential": false,
+                    "activities": [
+                        {
+                            "name": "CurrentYear",
+                            "type": "SetVariable",
+                            "dependsOn": [],
+                            "policy": {
+                                "secureOutput": false,
+                                "secureInput": false
+                            },
+                            "userProperties": [],
+                            "typeProperties": {
+                                "variableName": "Current_Year",
+                                "value": {
+                                    "value": "@item()",
+                                    "type": "Expression"
+                                }
+                            }
+                        },
+                        {
+                            "name": "Call_Month_WF",
+                            "type": "ExecutePipeline",
+                            "dependsOn": [
+                                {
+                                    "activity": "CurrentYear",
+                                    "dependencyConditions": [
+                                        "Succeeded"
+                                    ]
+                                }
+                            ],
+                            "policy": {
+                                "secureInput": false
+                            },
+                            "userProperties": [],
+                            "typeProperties": {
+                                "pipeline": {
+                                    "referenceName": "NYC_Grab_month_Data",
+                                    "type": "PipelineReference"
+                                },
+                                "waitOnCompletion": true,
+                                "parameters": {
+                                    "Current_Year": {
+                                        "value": "@item()",
+                                        "type": "Expression"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "parameters": {
+            "Years": {
+                "type": "array",
+                "defaultValue": [
+                    "2021",
+                    "2022",
+                    "2023",
+                    "2024"
+                ]
+            }
+        },
+        "variables": {
+            "Current_Year": {
+                "type": "String"
+            }
+        },
+        "annotations": [],
+        "lastPublishTime": "2025-04-27T02:22:32Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,6 @@
+selected resource name:		NYC_Grab_month_Data
+selected resource type:		pipeline
+factory name:			NYC-taxi-Azure-Data-Factory
+factory location:		eastus
+subscription id:		6904abec-08ac-4a6f-95b0-e418e5337a03
+time of download (UTC):		Sun, 27 Apr 2025 19:22:56 GMT
