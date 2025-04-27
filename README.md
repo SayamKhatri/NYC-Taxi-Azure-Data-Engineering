@@ -4,7 +4,8 @@ Azure End to End Big Data Pipeline with Modern Data Engineering Tech Stack
 
 ## Project Overview
 
-This project implements an end-to-end Big Data pipeline that processes **5.7+ million** New York City taxi trip records across 60 months (2020–2025) using an API pipeline.  
+This project implements an end-to-end Big Data pipeline that processes **5.7+ million** New York City taxi trip records across 60 months (2020–2025) using an API pipeline. 
+
 It demonstrates real-world scale ingestion, processing, storage, and reporting using a full Azure Data Engineering stack, optimized for parallelism, scalability, and governance.
 
 The source data is ingested through the [NYC Taxi & Limousine Commission API](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page), processed in a multi-zone data lake architecture (Bronze, Silver, Gold), stored using **Delta Lake**, and visualized through Power BI.
