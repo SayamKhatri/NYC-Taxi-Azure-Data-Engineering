@@ -32,7 +32,7 @@ The source data is ingested through the [NYC Taxi & Limousine Commission API](ht
 
 ## Technical Deep Dive
 
-### 1. Azure Data Factory (ADF) — Complex Ingestion Orchestration
+### 1. Azure Data Factory (ADF) 
 
 - **API Integration**: ADF pipelines connect to the NYC TLC API endpoint to retrieve trip data.
 - **ForEach and Pipeline Orchestration**:
@@ -47,7 +47,7 @@ The source data is ingested through the [NYC Taxi & Limousine Commission API](ht
 
 
 
-### 2. Azure Data Lake Storage Gen2 — Secure, Hierarchical Storage
+### 2. Azure Data Lake Storage Gen2 
 
 - **Multi-zone Lake**:
   - **Raw (Bronze)**: Direct dump of API JSON responses.
@@ -58,7 +58,7 @@ The source data is ingested through the [NYC Taxi & Limousine Commission API](ht
   - Optimized for analytics workloads.
 
 
-### 3. Azure Databricks — Distributed Data Processing Engine
+### 3. Azure Databricks 
 
 - **Silver Notebook**:
   - Cleans raw data.
@@ -70,9 +70,7 @@ The source data is ingested through the [NYC Taxi & Limousine Commission API](ht
   - Cache & optimize reads/writes.
 
 
-### 4. Delta Lake — The Foundation of Reliable Data Lake Storage
-
-Delta Lake is not just a format — it's a transactional storage layer on top of Data Lake Gen2.
+### 4. Delta Lake 
 
 Key features leveraged:
 - **ACID Transactions**: Guarantees write consistency even under failures.
@@ -84,7 +82,7 @@ Key features leveraged:
 
 
 
-### 5. Power BI — Interactive Reporting
+### 5. Power BI 
 
 - Connects to curated Gold tables.
 - Enables real-time analytics and self-service BI.
